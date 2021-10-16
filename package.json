@@ -1,14 +1,15 @@
 {
   "name": "article-archiver",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "Node tool to scrape and transform articles for local reading",
   "main": "lib/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chrisodicho/article-archiver.git"
+    "url": "https://github.com/chrisodicho/article-archiver.git"
   },
   "keywords": [
     "node",
@@ -32,6 +33,9 @@
   "devDependencies": {
     "@commitlint/cli": "^13.2.1",
     "@commitlint/config-conventional": "^13.2.0",
-    "husky": "^7.0.2"
+    "@semantic-release/changelog": "^6.0.0",
+    "@semantic-release/git": "^10.0.0",
+    "husky": "^7.0.2",
+    "semantic-release": "^18.0.0"
   }
 }
