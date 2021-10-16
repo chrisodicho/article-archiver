@@ -2,7 +2,7 @@
   "name": "article-archiver",
   "version": "1.0.0",
   "description": "Node tool to scrape and transform articles for local reading",
-  "main": "index.js",
+  "main": "lib/index.js",
   "files": [
     "lib/**/*"
   ],
