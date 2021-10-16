@@ -1,0 +1,10 @@
+{
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "rules": {
+    "typedef": [
+      true,
+      "call-signature",
+      "property-declaration"
+    ]
+  }
+}
