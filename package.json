@@ -1,0 +1,32 @@
+{
+  "name": "article-archiver",
+  "version": "1.0.0",
+  "description": "Node tool to scrape and transform articles for local reading",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisodicho/article-archiver.git"
+  },
+  "keywords": [
+    "node",
+    "website",
+    "articles",
+    "blogs",
+    "posts",
+    "scraper",
+    "mozilla",
+    "readability",
+    "turndown",
+    "markdown",
+    "offline"
+  ],
+  "author": "Chris Odicho <chris.odicho@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chrisodicho/article-archiver/issues"
+  },
+  "homepage": "https://github.com/chrisodicho/article-archiver#readme"
+}
