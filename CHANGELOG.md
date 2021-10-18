@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/chrisodicho/article-archiver/compare/v1.0.0...v1.1.0) (2021-10-18)
+
+
+### Features
+
+* update spec as feat to trigger release ([501683c](https://github.com/chrisodicho/article-archiver/commit/501683ccaa8c90f20472a70af2c1897685abcac6))
+* update spec as feat to trigger release again ([a2665d7](https://github.com/chrisodicho/article-archiver/commit/a2665d7e672177bb1cd65b95f45d9aef5075ee04))
+
 # 1.0.0 (2021-10-18)
 
 
