@@ -16,7 +16,8 @@
     "test": "jest",
     "format": "eslint src/**/*.ts --fix",
     "lint": "eslint src/**/*.ts",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -49,6 +50,7 @@
     "@types/jest": "^27.0.2",
     "husky": "^7.0.2",
     "jest": "^27.2.5",
+    "lint-staged": "^11.2.3",
     "prettier": "^2.4.1",
     "semantic-release": "^18.0.0",
     "ts-jest": "^27.0.6",
@@ -60,5 +62,8 @@
     "commander": "^8.2.0",
     "eslint": "^8.0.1",
     "esm": "^3.2.25"
+  },
+  "lint-staged": {
+    "*.--fix": "prettier --write"
   }
 }
