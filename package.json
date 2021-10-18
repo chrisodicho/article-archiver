@@ -11,6 +11,7 @@
   ],
   "scripts": {
     "prebuild": "node -p \"'export const version = ' + JSON.stringify(require('./package.json').version) + ';'\" > src/version.ts",
+    "prepack": "npm run build",
     "build": "tsc",
     "watch": "tsc --watch",
     "test": "jest",
