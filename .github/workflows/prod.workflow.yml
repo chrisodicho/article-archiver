@@ -1,4 +1,4 @@
-name: Prod Workflow
+name: Production
 on:
   push:
     branches:
@@ -14,7 +14,6 @@ jobs:
       - run: npm install
       - run: npm test
   release:
-    name: Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
