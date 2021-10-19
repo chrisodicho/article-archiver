@@ -8,6 +8,17 @@ The purpose of this library is to convert online articles / blog posts into loca
 
 The heavy lifting around scraping is done with [Cypress](https://www.cypress.io/) and the content is enhanced with [Mozilla Readability](https://github.com/mozilla/readability).
 
+---
+
+# Getting Started
+
+⚠️ This library is under development and not expected to work until the TODO's are completed ⚠️
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Architecture](#architecture)
+- [TODO](#todo)
+
 # Installation
 
 ```bash
