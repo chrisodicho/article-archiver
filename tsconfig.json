@@ -6,8 +6,14 @@
     "outDir": "./lib",
     "strict": true,
     "resolveJsonModule": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "rootDirs": ["src"],
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["src"],
-  "exclude": ["node_modules", "**/__tests__/*"]
+  "exclude": ["bin", "lib", "node_modules"]
 }

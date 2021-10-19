@@ -1,4 +1,9 @@
 #!/usr/bin/env node
 
-require = require('esm')(module /*, options*/);
-require('../lib/cli');
+try {
+  require = require('esm')(module /*, options*/);
+  require('../lib/cli');
+} catch (error) {
+  console.error('article-archiver failed to run. Try again with the --debug flag.');
+  console.error(error);
+}

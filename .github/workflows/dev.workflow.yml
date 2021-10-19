@@ -2,6 +2,7 @@ name: Development
 on:
   push:
     branches:
+      - '*'
       - '!main'
 jobs:
   test:
