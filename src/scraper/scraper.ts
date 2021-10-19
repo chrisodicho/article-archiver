@@ -21,7 +21,7 @@ export function scraper(urls: string, options: Options = {}) {
 
   const startTime = new Date().getTime();
 
-  logger.scraper.info(`Starting to scrape: ${urls}`);
+  logger.scraper.info(`Started scraping: ${urls}`);
 
   execSync(`npx cypress ${openOrRun} --browser chrome:canary${headless}`, {
     cwd: fullPathToThisProject(),
