@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/chrisodicho/article-archiver/compare/v1.1.0...v1.2.0) (2021-10-19)
+
+
+### Bug Fixes
+
+* add try..catch to article-archiver binary ([b5ddb80](https://github.com/chrisodicho/article-archiver/commit/b5ddb804776aa17f6989604d1be4a361470b61e0))
+
+
+### Features
+
+* setup scraper service with cypress ([cf069b1](https://github.com/chrisodicho/article-archiver/commit/cf069b1ac21133a0dd323520b14d44332b0544cc))
+
 # [1.1.0](https://github.com/chrisodicho/article-archiver/compare/v1.0.0...v1.1.0) (2021-10-18)
 
 
