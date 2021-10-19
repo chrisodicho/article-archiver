@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/chrisodicho/article-archiver/compare/v1.3.0...v1.3.1) (2021-10-19)
+
+
+### Bug Fixes
+
+* cypress tsconfig issue ([c08382f](https://github.com/chrisodicho/article-archiver/commit/c08382f83ddd0d986606d96138e14be2e429ccc8))
+
 # [1.3.0](https://github.com/chrisodicho/article-archiver/compare/v1.2.0...v1.3.0) (2021-10-19)
 
 

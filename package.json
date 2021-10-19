@@ -1,6 +1,6 @@
 {
   "name": "article-archiver",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Node tool to scrape and transform articles for local reading",
   "main": "lib/index.js",
   "bin": {
