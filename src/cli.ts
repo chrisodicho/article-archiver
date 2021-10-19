@@ -3,12 +3,16 @@ import { version } from './version';
 const program = new Command();
 
 import { scraper } from '@/scraper';
+import { logger, setupLogger } from '@/utils/logger';
 
 program
   .version(version)
   .argument('<urls>', 'comma separated list of URLs to archive')
   .action(function (urls) {
-    scraper(urls, program.opts());
+    const options = program.opts();
+    setupLogger(options);
+    logger.app.debug(`started with options: ${JSON.stringify(options, null, 2)}`);
+    scraper(urls, options);
   });
 
 program.addOption(new Option('-d, --debug', 'output extra debugging').env('DEBUG'));

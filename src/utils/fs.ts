@@ -3,6 +3,7 @@
 import path from 'path';
 import rimraf from 'rimraf';
 import { promises, constants } from 'fs';
+import { logger } from './logger';
 
 const fs = promises;
 
@@ -36,8 +37,7 @@ async function readDir(dir: string, recursive = true, allFiles: string[] = []) {
 async function createDir(directoryPath: string, recursive = true) {
   // ignore errors - throws if the path already exists
   return fs.mkdir(directoryPath, { recursive: recursive }).catch((error) => {
-    console.error('createDir error');
-    console.error(error);
+    logger.utils.error(`[utils/fs#createDir] error ${error.message}`);
   });
 }
 
