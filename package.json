@@ -51,6 +51,7 @@
     "@semantic-release/changelog": "^6.0.0",
     "@semantic-release/git": "^10.0.0",
     "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.1",
     "@types/rimraf": "^3.0.2",
     "chrome-ext-downloader": "^1.0.4",
     "cypress": "^8.6.0",
@@ -71,6 +72,7 @@
     "commander": "^8.2.0",
     "eslint": "^8.0.1",
     "esm": "^3.2.25",
+    "log4js": "^6.3.0",
     "rimraf": "^3.0.2",
     "util": "^0.12.4"
   },
