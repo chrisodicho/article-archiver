@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+    <title>Classic Cache Killer - Options</title>
+
+    <style type="text/css">
+        body {
+            padding: 20px;
+            font-size: 15px;
+        }
+
+        * {
+            outline: none;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        .table {
+            margin: 0 auto;
+            display: table;
+        }
+
+        .row {
+            display: table-row;
+        }
+
+        .cell {
+            display: table-cell;
+            padding: 15px 20px;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        input[type=text] {
+            min-width: 300px;
+        }
+
+        input[type=text],
+        input[type=submit] {
+            border-radius: 100px;
+            border: 1px solid #bdbdbd;
+            background: transparent;
+            padding: 5px 10px;
+        }
+
+        input[type=submit] {
+            padding: 5px 15px;
+        }
+
+        input[type=text]:hover,
+        input[type=submit]:hover {
+            border-color: #9c9c9c;
+        }
+
+        input[type=text]:focus,
+        input[type=submit]:focus {
+            border-color: #a80300;
+        }
+
+        .description {
+            margin: 10px 0;
+            font-size: 12px;
+            max-width: 400px;
+            display: block;
+            color: #777;
+        }
+
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="icon128.png" />
+</header>
+
+<div class="table">
+
+    <div class="row">
+        <div class="cell right">
+            <label for="enableOnStartElement">Enable on start</label>
+        </div>
+        <div class="cell">
+            <input type="checkbox" id="enableOnStartElement" name="enableOnStartElement" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="cell right">
+            <label for="defaultSettingsUrlElement">Load default settings from</label>
+        </div>
+        <div class="cell">
+            <input type="text" id="defaultSettingsUrlElement" name="defaultSettingsUrlElement" />
+            <p class="description">
+                In some cases it is helpful to be able to forcefully set extension settings remotely (like for RDS users). Every browser start extension
+                will perform a GET request to this URL in attempt to load a JSON file with settings overrides. Here's an example of response:</p>
+            <code>
+                { "enableOnStart": true }
+            </code>
+        </div>
+    </div>
+
+</div>
+
+<br /><br />
+
+<div class="center">
+    <input type="submit" id="save" value="Save" />
+</div>
+
+<script type="text/javascript" src="options.js"></script>
+
+</body>
+</html>
