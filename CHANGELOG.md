@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/chrisodicho/article-archiver/compare/v1.2.0...v1.3.0) (2021-10-19)
+
+
+### Features
+
+* setup log4js and refactor scattered console.logs ([f8b8370](https://github.com/chrisodicho/article-archiver/commit/f8b8370473a0836ffc5fb92dff89d6218d385d75))
+
 # [1.2.0](https://github.com/chrisodicho/article-archiver/compare/v1.1.0...v1.2.0) (2021-10-19)
 
 
