@@ -4,6 +4,6 @@ try {
   require = require('esm')(module /*, options*/);
   require('../lib/cli');
 } catch (error) {
-  console.error('article-archiver failed to run. Try again with the --debug flag.');
+  console.error('[FATAL] article-archiver failed to run. Try again with the --debug flag to see more info.');
   console.error(error);
 }
