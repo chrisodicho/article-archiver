@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
-/lib
-/tmp
+lib
+.article-archiver-tmp
+tmp
 
 *.log
