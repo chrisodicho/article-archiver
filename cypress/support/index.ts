@@ -25,8 +25,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   return false;
 });
 
-Cypress.on('window:before:load', (win) => {
-  const navigatorProto = (win as any).navigator.__proto__;
+Cypress.on('window:before:load', (win: any) => {
+  const navigatorProto = win.navigator.__proto__;
 
   if (navigatorProto) {
     // disable service workers
