@@ -28,7 +28,7 @@ npm install -g article-archiver
 # Usage
 
 ```bash
-article-archiver <urls>
+npx article-archiver <urls>
 ```
 
 # Architecture
