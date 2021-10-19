@@ -1,6 +1,6 @@
 # Article Archiver ![production](https://github.com/chrisodicho/article-archiver/actions/workflows/prod.workflow.yml/badge.svg)
 
-The purpose of this library is to convert online articles / blog posts into local markdown by preserving:
+The purpose of this library is to convert online articles and blog posts into local markdown by only preserving:
 
 - article content
 - media assets
