@@ -2,6 +2,7 @@ import path from 'path';
 import { execSync } from 'child_process';
 import { DefaultOptions, Options } from '@/types';
 import { logger } from '@/utils/logger';
+import { fullPathToThisProject } from '@/utils/paths';
 
 export function scraper(urls: string, options: Options = {}) {
   logger.scraper.debug(`Running from dir: ${path.join(__dirname, '../..')}`);
@@ -23,7 +24,7 @@ export function scraper(urls: string, options: Options = {}) {
   logger.scraper.info(`Starting to scrape: ${urls}`);
 
   execSync(`npx cypress ${openOrRun} --browser chrome:canary${headless}`, {
-    cwd: path.join(__dirname, '../..'),
+    cwd: fullPathToThisProject(),
     stdio: options.debug ? 'inherit' : 'ignore',
   });
 

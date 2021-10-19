@@ -2,6 +2,10 @@ describe('scraper', () => {
   const execSync = jest.fn();
 
   beforeAll(() => {
+    jest.mock('@/utils/paths', () => ({
+      fullPathToThisProject: () => '/FAKE/Project/Path',
+    }));
+
     jest.mock('child_process', () => {
       return {
         execSync,
@@ -15,6 +19,7 @@ describe('scraper', () => {
 
   afterAll(() => {
     jest.unmock('child_process');
+    jest.unmock('@/utils/paths');
   });
 
   describe('with required args', () => {
@@ -34,7 +39,10 @@ describe('scraper', () => {
     });
 
     it('runs cypress in headless mode', () => {
-      expect(execSync).toHaveBeenCalledWith('npx cypress run --browser chrome:canary --headless', { stdio: 'ignore' });
+      expect(execSync).toHaveBeenCalledWith('npx cypress run --browser chrome:canary --headless', {
+        cwd: '/FAKE/Project/Path',
+        stdio: 'ignore',
+      });
     });
   });
 
@@ -47,7 +55,10 @@ describe('scraper', () => {
     });
 
     it('opens cypress and pipes output to stdio', () => {
-      expect(execSync).toHaveBeenCalledWith('npx cypress open --browser chrome:canary', { stdio: 'inherit' });
+      expect(execSync).toHaveBeenCalledWith('npx cypress open --browser chrome:canary', {
+        cwd: '/FAKE/Project/Path',
+        stdio: 'inherit',
+      });
     });
   });
 });
