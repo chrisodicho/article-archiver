@@ -1,5 +1,5 @@
 import { LogLevel, Options } from '@/types';
-import { configure, getLogger } from 'log4js';
+import { configure, getLogger, shutdown } from 'log4js';
 
 const app = getLogger('app');
 app.level = LogLevel.INFO;
@@ -9,6 +9,10 @@ utils.level = LogLevel.INFO;
 
 const scraper = getLogger('scraper');
 scraper.level = LogLevel.INFO;
+
+if (process.env.NODE_ENV === 'test') {
+  shutdown();
+}
 
 export function setupLogger(options: Options): void {
   const logLevel: LogLevel = options.debug ? LogLevel.DEBUG : LogLevel.INFO;
