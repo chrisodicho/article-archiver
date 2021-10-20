@@ -1,8 +1,10 @@
 import { EnhancedDocument } from '@/types';
+import { cleanup } from './cleanup';
+import { normalizeDataAttributes } from './normalizeDataAttributes';
 
 export function enhancer(document: Document): EnhancedDocument {
-  // removeVisuallyHiddenElements
-  // addCodeBlockDataAttributes
+  cleanup(document);
+  normalizeDataAttributes(document);
   // getReadableDocumentAndMeta
 
   const meta = {};
