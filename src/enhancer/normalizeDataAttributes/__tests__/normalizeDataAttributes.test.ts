@@ -3,14 +3,68 @@ import { normalizeDataAttributes } from '..';
 
 describe('enhancer/normalizeDataAttributes', () => {
   describe('data-language', () => {
-    it('removes highlight box from medium articles', () => {
-      const dom = new JSDOM('<body><div id="lo-highlight-meter-1-highlight-box"></div></body>', {
-        url: 'https://medium.com',
-      });
+    it('extracts from ChromaJs code blocks', () => {
+      const dom = new JSDOM(`
+        <body>
+          <pre class="chroma">
+            <code data-lang="FAKE_LANGUAGE">
+            </code>
+          </pre>
+        </body>
+      `);
 
       const document = normalizeDataAttributes(dom.window.document);
 
-      expect(document.querySelector('.lo-highlight-meter-1-highlight-box')).toBeNull();
+      const preNode = document.querySelector('pre');
+      expect(preNode?.getAttribute('data-language')).toEqual('FAKE_LANGUAGE');
+    });
+
+    it('extracts from Geshi code blocks', () => {
+      const dom = new JSDOM(`
+        <body>
+          <div class="mw-geshi">
+            <div class="source-FAKE_LANGUAGE">
+              <pre>
+              </pre>
+            </div>
+          </div>
+        </body>
+      `);
+
+      const document = normalizeDataAttributes(dom.window.document);
+
+      const preNode = document.querySelector('pre');
+      expect(preNode?.getAttribute('data-language')).toEqual('FAKE_LANGUAGE');
+    });
+
+    it('extracts from HighlightJsV8 code blocks', () => {
+      const dom = new JSDOM(`
+        <body>
+          <pre>
+          <code class="hljs FAKE_LANGUAGE"></code>
+          </pre>
+        </body>
+      `);
+
+      const document = normalizeDataAttributes(dom.window.document);
+
+      const preNode = document.querySelector('pre');
+      expect(preNode?.getAttribute('data-language')).toEqual('FAKE_LANGUAGE');
+    });
+
+    it('extracts from HighlightJsV11 code blocks', () => {
+      const dom = new JSDOM(`
+        <body>
+          <pre>
+          <code class="hljs language-FAKE_LANGUAGE"></code>
+          </pre>
+        </body>
+      `);
+
+      const document = normalizeDataAttributes(dom.window.document);
+
+      const preNode = document.querySelector('pre');
+      expect(preNode?.getAttribute('data-language')).toEqual('FAKE_LANGUAGE');
     });
   });
 });

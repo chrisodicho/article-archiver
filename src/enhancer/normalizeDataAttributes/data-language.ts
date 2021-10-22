@@ -1,4 +1,4 @@
-function normalizeChromaAttributes(document: Document): Document {
+function normalizeChromaJsAttributes(document: Document): Document {
   document.querySelectorAll('pre.chroma code').forEach((node) => {
     if (!node.parentElement) {
       return;
@@ -20,7 +20,10 @@ function normalizeGeshiAttributes(document: Document): Document {
     if (firstChild) {
       firstChild.className.split(' ').forEach((className) => {
         if (className.indexOf('source-') === 0) {
-          node.setAttribute('data-language', className.replace('source-', ''));
+          const preNode = node.querySelector('pre');
+          if (preNode) {
+            preNode.setAttribute('data-language', className.replace('source-', ''));
+          }
         }
       });
     }
@@ -28,23 +31,37 @@ function normalizeGeshiAttributes(document: Document): Document {
   return document;
 }
 
-function normalizeHighlightJsAttributes(document: Document): Document {
-  document.querySelectorAll('pre.code.hljs').forEach((node) => {
+function normalizeHighlightJsV8Attributes(document: Document): Document {
+  document.querySelectorAll('pre code.hljs').forEach((node) => {
     const language = node.className.split(' ').find((className) => {
       return className !== 'code' && className !== 'hljs';
     });
 
-    if (language) {
-      node.setAttribute('data-language', language);
+    if (language && node.parentElement) {
+      node.parentElement.setAttribute('data-language', language);
     }
   });
   return document;
 }
 
+function normalizeHighlightJsV11Attributes(document: Document): Document {
+  document.querySelectorAll('pre code.hljs').forEach((node) => {
+    node.className.split(' ').forEach((className) => {
+      if (className.indexOf('language-') === 0) {
+        if (node.parentElement) {
+          node.parentElement.setAttribute('data-language', className.replace('language-', ''));
+        }
+      }
+    });
+  });
+  return document;
+}
+
 export function normalizeDataLanguage(document: Document): Document {
-  normalizeChromaAttributes(document);
+  normalizeChromaJsAttributes(document);
   normalizeGeshiAttributes(document);
-  normalizeHighlightJsAttributes(document);
+  normalizeHighlightJsV8Attributes(document);
+  normalizeHighlightJsV11Attributes(document);
 
   return document;
 }
