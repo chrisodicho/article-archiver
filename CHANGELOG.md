@@ -1,3 +1,16 @@
+# [1.4.0](https://github.com/chrisodicho/article-archiver/compare/v1.3.1...v1.4.0) (2021-10-22)
+
+
+### Bug Fixes
+
+* disable logger in tests ([4977a5f](https://github.com/chrisodicho/article-archiver/commit/4977a5fd7fecf5a05af5b72c1eef4c280277e1ad))
+
+
+### Features
+
+* create placeholder enhancer with smoke spec ([ab875d9](https://github.com/chrisodicho/article-archiver/commit/ab875d98b767217dc2c458188a50d59456f36beb))
+* **enhancer:** create cleanup and normalize functions with specs ([eccf8e6](https://github.com/chrisodicho/article-archiver/commit/eccf8e69df7d31d9deabc1f5727ab3d4c381e9a5))
+
 ## [1.3.1](https://github.com/chrisodicho/article-archiver/compare/v1.3.0...v1.3.1) (2021-10-19)
 
 
