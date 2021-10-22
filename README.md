@@ -39,7 +39,7 @@ npx article-archiver <urls>
 
 - [x] setup cypress
 - [x] configure cypress to scrape URL's
-- [ ] implement code cleaner and enhancer
+- [x] implement code cleaner and enhancer
 - [ ] implement readability
 - [ ] wire up scraper to enhancer
 - [ ] setup http server for tmp files
