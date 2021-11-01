@@ -1,12 +1,11 @@
-import { EnhancedDocument } from '@/types';
+import { EnhancedDocument, ExtraMeta } from '@/types';
 import { cleanup } from './cleanup';
+import { getReadableDocumentWithMeta } from './getReadableDocumentWithMeta';
 import { normalizeDataAttributes } from './normalizeDataAttributes';
 
-export function enhancer(document: Document): EnhancedDocument {
+export function enhancer(document: Document, extraMeta?: ExtraMeta): EnhancedDocument {
   cleanup(document);
   normalizeDataAttributes(document);
-  // getReadableDocumentAndMeta
 
-  const meta = {};
-  return { document, meta };
+  return getReadableDocumentWithMeta(document, extraMeta);
 }
