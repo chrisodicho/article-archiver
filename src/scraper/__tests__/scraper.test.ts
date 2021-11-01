@@ -39,7 +39,7 @@ describe('scraper', () => {
     });
 
     it('runs cypress in headless mode', () => {
-      expect(execSync).toHaveBeenCalledWith('npx cypress run --browser chrome:canary --headless', {
+      expect(execSync).toHaveBeenCalledWith('npx cypress run', {
         cwd: '/FAKE/Project/Path',
         stdio: 'ignore',
       });
@@ -55,7 +55,7 @@ describe('scraper', () => {
     });
 
     it('opens cypress and pipes output to stdio', () => {
-      expect(execSync).toHaveBeenCalledWith('npx cypress open --browser chrome:canary', {
+      expect(execSync).toHaveBeenCalledWith('npx cypress run', {
         cwd: '/FAKE/Project/Path',
         stdio: 'inherit',
       });
