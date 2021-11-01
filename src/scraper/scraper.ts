@@ -11,19 +11,11 @@ export function scraper(urls: string, options: Options = {}) {
   process.env.CYPRESS_ARTICLE_ARCHIVER_TMP_DIR = options.tmpDir ?? DefaultOptions.TMP_DIR;
   process.env.ELECTRON_EXTRA_LAUNCH_ARGS = '--disable-http-cache --lang=es';
 
-  const openOrRun = options.debug ? 'open' : 'run';
-
-  let headless = options.debug ? '' : ' --headless';
-
-  if (openOrRun === 'open') {
-    headless = '';
-  }
-
   const startTime = new Date().getTime();
 
   logger.scraper.info(`Started scraping: ${urls}`);
 
-  execSync(`npx cypress ${openOrRun} --browser chrome:canary${headless}`, {
+  execSync(`npx cypress run`, {
     cwd: fullPathToThisProject(),
     stdio: options.debug ? 'inherit' : 'ignore',
   });
