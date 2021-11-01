@@ -1,3 +1,17 @@
+# [1.5.0](https://github.com/chrisodicho/article-archiver/compare/v1.4.0...v1.5.0) (2021-11-01)
+
+
+### Bug Fixes
+
+* **cypress:** add disable web security flag to browser args ([ae04058](https://github.com/chrisodicho/article-archiver/commit/ae04058b51d3264c72c37ed058614297382cf1ab))
+* **scraper:** better debug output for cypress ([d236726](https://github.com/chrisodicho/article-archiver/commit/d2367269c8efb1687e31745722c38189f8344570))
+
+
+### Features
+
+* **enhancer:** setup readability parsing ([5465b2f](https://github.com/chrisodicho/article-archiver/commit/5465b2f1596c9ebfdbbe043e0753fa3b234773bf))
+* **utils:** add slugify utility ([08a3a8c](https://github.com/chrisodicho/article-archiver/commit/08a3a8c7bf8f11ccd03623f19f1eeee8bd51cace))
+
 # [1.4.0](https://github.com/chrisodicho/article-archiver/compare/v1.3.1...v1.4.0) (2021-10-22)
 
 
