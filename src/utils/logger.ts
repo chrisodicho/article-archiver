@@ -1,17 +1,18 @@
-import { LogLevel, Options } from '@/types';
+import { Loggers, LogLevel, Options } from '@/types';
 import { configure, getLogger, shutdown } from 'log4js';
 
-const app = getLogger('app');
-app.level = LogLevel.INFO;
+export const logger = {
+  app: getLogger('app'),
+  enhancer: getLogger('enhancer'),
+  scraper: getLogger('scraper'),
+  utils: getLogger('utils'),
+};
 
-const utils = getLogger('utils');
-utils.level = LogLevel.INFO;
-
-const scraper = getLogger('scraper');
-scraper.level = LogLevel.INFO;
-
-if (process.env.NODE_ENV === 'test') {
+if (process.env.NODE_ENV === 'test' && !process.env.LOG_LEVEL) {
   shutdown();
+} else {
+  const logLevel = (process.env.LOG_LEVEL as LogLevel) || LogLevel.INFO;
+  setAllLogLevels(logLevel);
 }
 
 export function setupLogger(options: Options): void {
@@ -21,13 +22,11 @@ export function setupLogger(options: Options): void {
     appenders: { console: { type: 'console' }, file: { type: 'file', filename: 'article-archiver.log' } },
     categories: { default: { appenders: ['console', 'file'], level: logLevel } },
   });
-  app.level = logLevel;
-  utils.level = logLevel;
-  scraper.level = logLevel;
+  setAllLogLevels(logLevel);
 }
 
-export const logger = {
-  app,
-  utils,
-  scraper,
-};
+function setAllLogLevels(logLevel: LogLevel) {
+  Object.values(Loggers).forEach((type) => {
+    logger[type].level = logLevel;
+  });
+}

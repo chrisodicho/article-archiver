@@ -7,7 +7,8 @@ describe('enhancer', () => {
       const dom = new JSDOM();
       const enhancedDocument = enhancer(dom.window.document);
 
-      expect(enhancedDocument.document).toBeDefined();
+      expect(enhancedDocument.raw).toBeDefined();
+      expect(enhancedDocument.readableContent).toBeDefined();
       expect(enhancedDocument.meta).toBeDefined();
     });
   });

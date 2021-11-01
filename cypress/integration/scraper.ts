@@ -1,9 +1,11 @@
+import { slugify } from '../../lib/utils/slugify';
+
 const URLS = Cypress.env('ARTICLE_ARCHIVER_URLS') ? Cypress.env('ARTICLE_ARCHIVER_URLS').split(',') : [];
 const TMP_DIR = Cypress.env('ARTICLE_ARCHIVER_TMP_DIR');
 
 const currentTime = new Date();
 
-URLS.forEach((url, idx) => {
+URLS.forEach((url: string, idx: number) => {
   describe(`Parsing site ${idx + 1} (${currentTime.toISOString()})`, () => {
     before(() => {
       cy.clearCookies();
@@ -18,6 +20,7 @@ URLS.forEach((url, idx) => {
       );
 
       cy.visit(url);
+
       cy.scrollTo('bottom', { easing: 'linear', duration: 5000 });
       cy.wait(1000);
     });
@@ -28,16 +31,11 @@ URLS.forEach((url, idx) => {
           throw new Error('No document object found');
         }
 
-        const readabilityJson = {
-          slug: 'test',
-          success: true,
-        };
-
+        const slug = slugify(url);
         cy.task('writeFiles', {
-          basePath: `${TMP_DIR}/${readabilityJson.slug}`,
+          basePath: `${TMP_DIR}/${slug}`,
           filesByName: {
-            'index.html': document.documentElement.outerHTML,
-            'front-matter.json': JSON.stringify(readabilityJson, null, 2),
+            'index.raw.html': document.documentElement.outerHTML,
           },
         });
 

@@ -28,6 +28,7 @@ module.exports = (on, config) => {
   on('before:browser:launch', (browser: any = {}, launchOptions) => {
     if (browser.family === 'chromium' && browser.name !== 'electron') {
       launchOptions.args.push('--auto-open-devtools-for-tabs');
+      launchOptions.args.push('--disable-web-security');
     }
 
     if (browser.name.indexOf('chrome') > -1) {
