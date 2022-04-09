@@ -1,17 +1,16 @@
 import { isProbablyReaderable, Readability } from '@mozilla/readability';
+import { sanitize } from 'isomorphic-dompurify';
 import { EnhancedDocument, ExtraMeta } from '@/types';
-import { getDocumentMeta } from './getDocumentMeta';
 import { logger } from '@/utils/logger';
+import { getDocumentMeta } from './getDocumentMeta';
 
 export function getReadableDocumentWithMeta(document: Document, extraMeta: ExtraMeta = {}): EnhancedDocument {
-
   try {
-    const DOMPurify = require('isomorphic-dompurify');
-    const cleanDocumentBody = DOMPurify.sanitize(document.body.innerHTML);
+    const cleanDocumentBody = sanitize(document.body.innerHTML);
     document.body.innerHTML = cleanDocumentBody;
-  } catch(error) {
-    logger.enhancer.warn('dompurify failed to sanitize the document');
-    logger.enhancer.debug(error)
+  } catch (error) {
+    logger.enhancer.warn('DOMpurify failed to sanitize the document');
+    logger.enhancer.debug(error);
   }
 
   if (!isProbablyReaderable(document)) {
