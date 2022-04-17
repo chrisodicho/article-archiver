@@ -2,17 +2,15 @@ import { Command, Option } from 'commander';
 import { version } from './version';
 const program = new Command();
 
-import { scraper } from '@/scraper';
-import { logger, setupLogger } from '@/utils/logger';
+import { main } from '@/main';
+import { DefaultOptions, Options } from '@/types';
 
 program
   .version(version)
   .argument('<urls>', 'comma separated list of URLs to archive')
-  .action(function (urls) {
-    const options = program.opts();
-    setupLogger(options);
-    logger.app.debug(`started with options: ${JSON.stringify(options, null, 2)}`);
-    scraper(urls, options);
+  .action(function (urls: string) {
+    const options: Options = program.opts();
+    main(urls, options);
   });
 
 program.addOption(new Option('-d, --debug', 'output extra debugging').env('DEBUG'));
@@ -24,7 +22,7 @@ program.addOption(
 program.addOption(
   new Option('-t, --tmp-dir <directory>', 'specify the temporary directory')
     .env('TMP_DIR')
-    .default('.article-archiver-tmp'),
+    .default(DefaultOptions.TMP_DIR),
 );
 
 program.parse(process.argv);

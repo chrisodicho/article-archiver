@@ -44,8 +44,8 @@ export enum LogLevel {
 }
 
 export interface Options {
-  debug?: boolean;
-  tmpDir?: string;
+  debug: boolean;
+  tmpDir: string;
 }
 
 export enum DefaultOptions {
