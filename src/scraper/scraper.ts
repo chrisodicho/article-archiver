@@ -1,10 +1,15 @@
 import path from 'path';
 import { execSync } from 'child_process';
-import { Options } from '@/types';
+import { DefaultOptions, Options } from '@/types';
 import { logger } from '@/utils/logger';
 import { fullPathToThisProject } from '@/utils/paths';
+import { getCypressCommand } from '@/utils/cypress';
 
-export async function scraper(urls: string, options: Options) {
+const defaultOptions = {
+  tmpDir: DefaultOptions.TMP_DIR,
+  debug: false,
+};
+export async function scraper(urls: string, options: Options = defaultOptions) {
   logger.scraper.debug(`Running from dir: ${path.join(__dirname, '../..')}`);
 
   const { tmpDir } = options;
@@ -25,12 +30,8 @@ export async function scraper(urls: string, options: Options) {
   }
 
   logger.scraper.info(`Started scraping: ${urls}`);
-
-  const projectRootPath = path.resolve(__dirname, '../../');
-  const cypressPath = path.resolve(projectRootPath, 'node_modules/.bin/cypress');
-  const specPath = path.resolve(projectRootPath, 'cypress/integration/scraper.ts');
-
-  execSync(`${cypressPath} run --spec "${specPath}"`, {
+  const cypressCommand = getCypressCommand();
+  execSync(cypressCommand, {
     cwd: fullPathToThisProject(),
     stdio: options.debug ? 'inherit' : 'ignore',
   });
